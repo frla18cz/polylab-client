@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <title>PolyLab</title>
+  <rect x="10" y="6" width="44" height="52" rx="14" fill="#1a1d2d" stroke="#2d3348" stroke-width="2"/>
+  <path d="M24 16h16" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M28 16v8l-9 14a10 10 0 0 0 8.4 15h9.2a10 10 0 0 0 8.4-15l-9-14v-8" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M23 36h18" stroke="#2e75ff" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M24 44l5-5 5 4 6-7" stroke="#2e75ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="24" cy="44" r="1.6" fill="#2e75ff"/>
+  <circle cx="29" cy="39" r="1.6" fill="#2e75ff"/>
+  <circle cx="34" cy="43" r="1.6" fill="#2e75ff"/>
+  <circle cx="40" cy="36" r="1.6" fill="#2e75ff"/>
+</svg>

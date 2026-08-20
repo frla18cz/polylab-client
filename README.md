@@ -1,8 +1,28 @@
-# polylab-client — Python client for Polymarket market and smart money data
+<div align="center">
 
-Query live Polymarket prices, spreads, liquidity, annualized return (APR), and
-wallet-level smart money activity from Python. No API key, no account, no
-dependencies beyond the standard library.
+<img src="https://raw.githubusercontent.com/frla18cz/polylab-client/main/assets/polylab-mark.svg" alt="PolyLab" width="72" height="72">
+
+# polylab-client
+
+### Polymarket data in Python. One import, zero dependencies.
+
+Live prices, spreads, liquidity, annualized yield, and wallet-level smart money
+positioning — from the [PolyLab](https://www.polylab.app) analytics engine.
+No API key. No account. Nothing to install but this.
+
+[![tests](https://github.com/frla18cz/polylab-client/actions/workflows/tests.yml/badge.svg)](https://github.com/frla18cz/polylab-client/actions/workflows/tests.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-2e75ff)](https://www.python.org/downloads/)
+[![dependencies: none](https://img.shields.io/badge/dependencies-none-2e75ff)](https://github.com/frla18cz/polylab-client/blob/main/pyproject.toml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-2e75ff)](https://github.com/frla18cz/polylab-client/blob/main/LICENSE)
+
+[Website](https://www.polylab.app) ·
+[Live scanner](https://www.polylab.app/app) ·
+[Docs](https://www.polylab.app/docs) ·
+[API contract](https://www.polylab.app/docs/reference/public-api-contract)
+
+</div>
+
+---
 
 ```bash
 pip install polylab-client
@@ -13,13 +33,32 @@ from polylab import PolyLabClient
 
 client = PolyLabClient()
 
-for market in client.markets(min_price=0.90, max_spread=0.02, limit=5):
-    print(f"{market.price:.2f}  {market.question[:60]}")
+for m in client.markets(min_price=0.15, max_price=0.85, max_spread=0.02,
+                        min_volume=500_000, sort_by="volume_usd", sort_dir="desc"):
+    print(f"{m.price:.2f} {m.outcome_name:<4} ${m.volume_usd/1e6:.1f}M  {m.question}")
 ```
 
-The data comes from the public API behind [PolyLab](https://www.polylab.app),
-which snapshots Polymarket hourly and refreshes wallet-level enrichment every
-six hours.
+```text
+0.17 Yes  $59.1M  Will the U.S. invade Iran before 2027?
+0.83 No   $59.1M  Will the U.S. invade Iran before 2027?
+0.15 Yes  $26.8M  Will Gavin Newsom win the 2028 Democratic presidential nomination?
+0.85 No   $26.8M  Will Gavin Newsom win the 2028 Democratic presidential nomination?
+0.20 Yes  $15.6M  Will JD Vance win the 2028 US Presidential Election?
+```
+
+*Real output, trimmed. Prices move — yours will differ.* Note that each market
+appears twice, once per outcome. That is the shape of every result set here.
+
+## What it gives you
+
+|  | |
+| --- | --- |
+| **Screen the whole board** | Filter ~350,000 live outcomes by price, spread, liquidity, volume, time to expiry, and category tags — server-side, in one call. |
+| **Find yield** | Annualized hold-to-maturity return precomputed on every row, so "what pays more than 15% and isn't expiring tomorrow" is a single query. |
+| **Follow the sharps** | Which side of a market the historically profitable wallets are sitting on, and which side the losing ones took. |
+| **Stay unblocked** | Unknown server fields land on `.raw`, so a new column is reachable the day it ships — no client release needed. |
+
+Everything below answers one question, with code you can paste.
 
 ---
 
