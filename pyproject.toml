@@ -35,7 +35,12 @@ dependencies = []
 [project.urls]
 Homepage = "https://www.polylab.app"
 Documentation = "https://www.polylab.app/docs/reference/public-api-contract"
-Source = "https://github.com/polylab/polylab-client"
+Source = "https://github.com/frla18cz/polylab-client"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/polylab"]
+
+[tool.pytest.ini_options]
+# The package lives in src/ and the tests import it directly, so a bare
+# `pytest` in a fresh clone needs src on the path.
+pythonpath = ["src"]
