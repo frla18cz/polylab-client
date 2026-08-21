@@ -10,6 +10,7 @@ Live prices, spreads, liquidity, annualized yield, and wallet-level smart money
 positioning — from the [PolyLab](https://www.polylab.app) analytics engine.
 No API key. No account. Nothing to install but this.
 
+[![PyPI](https://img.shields.io/pypi/v/polylab-client?color=2e75ff&label=pypi)](https://pypi.org/project/polylab-client/)
 [![tests](https://github.com/frla18cz/polylab-client/actions/workflows/tests.yml/badge.svg)](https://github.com/frla18cz/polylab-client/actions/workflows/tests.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-2e75ff)](https://www.python.org/downloads/)
 [![dependencies: none](https://img.shields.io/badge/dependencies-none-2e75ff)](https://github.com/frla18cz/polylab-client/blob/main/pyproject.toml)
